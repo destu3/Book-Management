@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
+/* soft reset and main structure */
 *{
     box-sizing: border-box;
     margin: 0;
@@ -10,17 +11,68 @@ body{
     font-family: "Quicksand", sans-serif, serif;
 }
 
-input[type="text"]{
-    display: block;
-    margin: 1rem 0;
-    padding: 2px 0;
-    font-size: 1.2rem;
-    margin-top: 0;
+html, body{
+    height: 100%;
+    width: 100%;
 }
 
-button{
-    padding: 10px 40px;
+
+/* main area */
+
+.main-area{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 1fr 3fr;
+}
+
+/* top half, add book section */
+
+.add-Book{
+
+    padding: 0 40px;
+    width: 100%;
+}
+
+.add-Book h3{
+    width: fit-content;
+    margin: auto;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.add-Book > .fields{
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    margin-bottom: 30px;
+}
+
+input[type="text"]{
+    display: block;
+    font-size: 1.2rem;
+    margin-top: 3px;
+    border: none;
+    border-bottom: 1px solid grey;
+    padding-bottom: 5px;
+}
+
+input[type="text"]:focus{
+    outline: none;
+}
+
+.add-Book button{
+    display: block;
     cursor: pointer;
+    padding: 8px 30px;
+    font-size: 0.9rem;
+    margin: 10px 0;
+    min-width: 163px;
+}
+
+.add-Book > div{
+    width: fit-content;
+    margin: auto;
 }
 
 .error{
