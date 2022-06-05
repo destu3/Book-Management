@@ -58,19 +58,57 @@ function addBooksToLibrary(){
 
 const bookGrid = document.querySelector(".book-view") 
 
+
 function populateBookGrid(){
-         theLibrary.forEach((book) => {
-            let cardElement = `<div class="book-card">
-            <img src="./images/TLOTR.jpg" alt="book image" class="book-image">
-            <h4>${book.title}</h4>
-            <p>${book.author}</p>
-            <p>Number of pages: ${book.pages}</p>
-            <p>Completed: ${book.read}</p>
-            <button class="delete-btn" data-library-index="${theLibrary.indexOf(book)}"><i class="fa-solid fa-trash-can"></i></button>
-            </div>`
-            const myElement = document.createRange().createContextualFragment(cardElement)
-            bookGrid.appendChild(myElement)
+        theLibrary.forEach((book) => {
+        let bookCard = document.createElement("div")
+        bookCard.classList.add("book-card")
+        let bookImage = document.createElement("img")
+        bookImage.src = "./images/TLOTR.jpg"
+        bookImage.classList.add("book-image")
+        let bookTitle = document.createElement("h4")
+        bookTitle.textContent = book.title
+        let bookAuthor = document.createElement("p")
+        bookAuthor.textContent = book.author
+        let pages = document.createElement("p")
+        pages.textContent = book.pages
+        let bookStatus = document.createElement("p")
+        bookStatus.textContent = book.read
+        let button = document.createElement("button")
+        button.classList.add("delete-btn")
+        button.setAttribute("data-library-index", theLibrary.indexOf(book))
+        button.addEventListener("click", () => {
+            deleteBook(button.getAttribute('data-library-index'))
+        })
+        let icon = document.createElement("i")
+        icon.classList.add("fa-solid")
+        icon.classList.add("fa-trash-can")
+        button.appendChild(icon)
+        bookCard.append(bookImage, bookTitle, bookAuthor, pages, bookStatus, button)
+        bookGrid.appendChild(bookCard)
     })
 }
 
 window.addEventListener("DOMContentLoaded", populateBookGrid())
+
+// delete book from library
+
+function deleteBook(index){
+    theLibrary.splice(index,1)
+    refresh()
+    populateBookGrid()
+}
+
+let deleteBtn = document.querySelectorAll(".delete-btn")
+
+// deleteBtn.forEach(btn => {
+//     btn.addEventListener("click", () => {
+//         deleteBook(btn.getAttribute('data-library-index'))
+//     })
+// })
+
+function refresh(){
+    while (bookGrid.firstChild) {
+        bookGrid.removeChild(bookGrid.firstChild);
+    }
+}
