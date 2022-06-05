@@ -52,6 +52,7 @@ html, body{
     border-radius: 5px;
     text-align: center;
     width: fit-content;
+    justify-self: center;
 }
 
 /* top half, add book section */
@@ -118,4 +119,46 @@ input[type="text"]:focus{
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
     padding: 100px;
+    padding-top: 30px;
+}
+
+/* simple media query */
+
+@media (max-width: 900px) {
+    
+    .main-area{
+        display: grid;
+        grid-template: 1fr 1fr / 1fr;
+        overflow-y: auto;
+    }
+
+    .add-Book{
+        padding-top: 20px;
+        grid-row: 1 / 2;
+        border-right: none;
+    }
+
+    .add-Book > .fields{
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .book-view{
+        grid-row: 2 / 3;
+        grid-template-columns: repeat(2,1fr);
+        padding: 10px;
+    }
+
+    input[type="text"]{
+        display: block;
+        font-size: 1rem;
+        margin-top: 3px;
+        border: none;
+        border-bottom: 1px solid grey;
+        display: inline-block;
+        width: 100%;
+    }
 }
