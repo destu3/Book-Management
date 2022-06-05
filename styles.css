@@ -55,6 +55,18 @@ html, body{
     justify-self: center;
 }
 
+.book-card button{
+    cursor: pointer;
+}
+
+.book-card button > i{
+    color: firebrick;
+    font-size: 16px;
+    
+    width: 100px;
+   
+}
+
 /* top half, add book section */
 
 .add-Book{

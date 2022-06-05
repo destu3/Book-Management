@@ -39,7 +39,6 @@ let theLibrary = [
     book4,
 ];
 
-
 // adding books functionality
 addBookBtn.addEventListener("click", addBooksToLibrary)
 
@@ -60,17 +59,18 @@ function addBooksToLibrary(){
 const bookGrid = document.querySelector(".book-view") 
 
 function populateBookGrid(){
-    let bookElement = theLibrary.map((book) => {
-        return `<div class="book-card">
-        <img src="./images/TLOTR.jpg" alt="book image" class="book-image">
-        <h4>${book.title}</h4>
-        <p>${book.author}</p>
-        <p>Number of pages: ${book.pages}</p>
-        <p>Completed: ${book.read}</p>
-        </div>`
+         theLibrary.forEach((book) => {
+            let cardElement = `<div class="book-card">
+            <img src="./images/TLOTR.jpg" alt="book image" class="book-image">
+            <h4>${book.title}</h4>
+            <p>${book.author}</p>
+            <p>Number of pages: ${book.pages}</p>
+            <p>Completed: ${book.read}</p>
+            <button class="delete-btn" data-library-index="${theLibrary.indexOf(book)}"><i class="fa-solid fa-trash-can"></i></button>
+            </div>`
+            const myElement = document.createRange().createContextualFragment(cardElement)
+            bookGrid.appendChild(myElement)
     })
-    bookElement = bookElement.join("")
-    bookGrid.innerHTML = bookElement
 }
 
 window.addEventListener("DOMContentLoaded", populateBookGrid())
