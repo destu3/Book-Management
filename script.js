@@ -26,7 +26,18 @@ const addBookBtn = document.getElementById("addBtn")
 const viewLibraryBtn = document.getElementById("viewBtn")
 
 // library array 
-let theLibrary = [];
+// dummy content
+let book1 = new Book("Nightwork", "Nora Roberts", "798", true)
+let book2 = new Book("The Summer Place", "Jennifer Weiner", "563", false)
+let book3 = new Book("22 Seconds", "James Patterson", "638", true)
+let book4 = new Book("Dream Town", "David Baldacci", "975", false)
+
+let theLibrary = [
+    book1,
+    book2,
+    book3,
+    book4
+];
 
 
 // adding books functionality
@@ -43,9 +54,27 @@ function addBooksToLibrary(){
     }
 }
 
+const bookGrid = document.querySelector(".book-view") 
+
+function populateBookGrid(){
+    let bookElement = theLibrary.map((book) => {
+        return `<div class="book-card">
+        <img src="./images/TLOTR.jpg" alt="book image" class="book-image">
+        <h4>${book.title}</h4>
+        <p>${book.author}</p>
+        <p>Number of pages: ${book.pages}</p>
+        <p>Completed: ${book.read}</p>
+        </div>`
+    })
+    bookElement = bookElement.join("")
+    bookGrid.innerHTML = bookElement
+}
+
 // viewing library
 viewLibraryBtn.addEventListener("click", viewLibrary)
 
 function viewLibrary(){
     console.log(theLibrary)
 }
+
+window.addEventListener("DOMContentLoaded", populateBookGrid())
