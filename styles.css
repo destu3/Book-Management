@@ -29,12 +29,29 @@ html, body{
 
 /* utility */
 
+.error{
+    color: firebrick;
+    margin-left: 20px;
+    font-size: 1rem;
+    font-weight: 800;
+    width: fit-content;
+    margin: auto;
+}
+
+.positive-e{
+    color: rgb(18, 107, 18);
+}
+
 .book-image{
     width: 100px;
 }
 
 .book-card{
-
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    text-align: center;
+    width: fit-content;
 }
 
 /* top half, add book section */
@@ -89,12 +106,6 @@ input[type="text"]:focus{
     outline: none;
 }
 
-.error{
-    color: firebrick;
-    margin-left: 20px;
-    font-size: 1.3rem;
-}
-
 .add-Book > div{
     width: fit-content;
     margin: auto;
@@ -107,12 +118,4 @@ input[type="text"]:focus{
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
     padding: 100px;
-}
-
-.book-card{
-    padding: 10px;
-    border: 1px solid black;
-    border-radius: 5px;
-    text-align: center;
-    width: fit-content;
 }

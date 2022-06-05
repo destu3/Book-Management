@@ -23,7 +23,7 @@ const numberOfPages = document.getElementById("pages")
 const bookCompleted = document.getElementById("read")
 const errorMessage = document.querySelector(".error")
 const addBookBtn = document.getElementById("addBtn")
-const viewLibraryBtn = document.getElementById("viewBtn")
+const bookCard = document.querySelector(".book-card")
 
 // library array 
 // dummy content
@@ -36,7 +36,7 @@ let theLibrary = [
     book1,
     book2,
     book3,
-    book4
+    book4,
 ];
 
 
@@ -46,11 +46,14 @@ addBookBtn.addEventListener("click", addBooksToLibrary)
 function addBooksToLibrary(){
     if(bookName.value.length == 0 || bookAuthor.value.length == 0 || numberOfPages.value.length == 0 || bookCompleted.value.length == 0){
         errorMessage.textContent = "Fill in all fields" 
+        errorMessage.classList.remove("positive-e")
     }
     else{
-        errorMessage.textContent = "" 
+        errorMessage.textContent = "Book successfully added" 
+        errorMessage.classList.add("positive-e")
         let book = new Book(bookName.value, bookAuthor.value, Number(numberOfPages.value), bookCompleted.value)
         theLibrary.push(book)
+        populateBookGrid()
     }
 }
 
@@ -68,13 +71,6 @@ function populateBookGrid(){
     })
     bookElement = bookElement.join("")
     bookGrid.innerHTML = bookElement
-}
-
-// viewing library
-viewLibraryBtn.addEventListener("click", viewLibrary)
-
-function viewLibrary(){
-    console.log(theLibrary)
 }
 
 window.addEventListener("DOMContentLoaded", populateBookGrid())
