@@ -52,7 +52,7 @@ function addBooksToLibrary(){
         errorMessage.classList.add("positive-e")
         let book = new Book(bookName.value, bookAuthor.value, Number(numberOfPages.value), bookCompleted.value)
         theLibrary.push(book)
-        populateBookGrid()
+        createBook(book)
     }
 }
 
@@ -61,31 +61,7 @@ const bookGrid = document.querySelector(".book-view")
 
 function populateBookGrid(){
         theLibrary.forEach((book) => {
-        let bookCard = document.createElement("div")
-        bookCard.classList.add("book-card")
-        let bookImage = document.createElement("img")
-        bookImage.src = "./images/TLOTR.jpg"
-        bookImage.classList.add("book-image")
-        let bookTitle = document.createElement("h4")
-        bookTitle.textContent = book.title
-        let bookAuthor = document.createElement("p")
-        bookAuthor.textContent = book.author
-        let pages = document.createElement("p")
-        pages.textContent = book.pages
-        let bookStatus = document.createElement("p")
-        bookStatus.textContent = book.read
-        let button = document.createElement("button")
-        button.classList.add("delete-btn")
-        button.setAttribute("data-library-index", theLibrary.indexOf(book))
-        button.addEventListener("click", () => {
-            deleteBook(button.getAttribute('data-library-index'))
-        })
-        let icon = document.createElement("i")
-        icon.classList.add("fa-solid")
-        icon.classList.add("fa-trash-can")
-        button.appendChild(icon)
-        bookCard.append(bookImage, bookTitle, bookAuthor, pages, bookStatus, button)
-        bookGrid.appendChild(bookCard)
+        createBook(book)
     })
 }
 
@@ -111,4 +87,32 @@ function refresh(){
     while (bookGrid.firstChild) {
         bookGrid.removeChild(bookGrid.firstChild);
     }
+}
+
+function createBook(book){
+    let bookCard = document.createElement("div")
+    bookCard.classList.add("book-card")
+    let bookImage = document.createElement("img")
+    bookImage.src = "./images/TLOTR.jpg"
+    bookImage.classList.add("book-image")
+    let bookTitle = document.createElement("h4")
+    bookTitle.textContent = book.title
+    let bookAuthor = document.createElement("p")
+    bookAuthor.textContent = book.author
+    let pages = document.createElement("p")
+    pages.textContent = book.pages
+    let bookStatus = document.createElement("p")
+    bookStatus.textContent = book.read
+    let button = document.createElement("button")
+    button.classList.add("delete-btn")
+    button.setAttribute("data-library-index", theLibrary.indexOf(book))
+    button.addEventListener("click", () => {
+        deleteBook(button.getAttribute('data-library-index'))
+    })
+    let icon = document.createElement("i")
+    icon.classList.add("fa-solid")
+    icon.classList.add("fa-trash-can")
+    button.appendChild(icon)
+    bookCard.append(bookImage, bookTitle, bookAuthor, pages, bookStatus, button)
+    bookGrid.appendChild(bookCard)
 }

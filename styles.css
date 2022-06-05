@@ -57,14 +57,18 @@ html, body{
 
 .book-card button{
     cursor: pointer;
+    border: none;
+    background-color: transparent;
 }
 
 .book-card button > i{
     color: firebrick;
     font-size: 16px;
-    
-    width: 100px;
-   
+    transition: all 0.1s;
+}
+
+.book-card button i:hover{
+    font-size: 18px;
 }
 
 /* top half, add book section */
