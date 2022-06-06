@@ -94,6 +94,7 @@ function createBook(book){
     })
     let editIcon = document.createElement("i")
     editIcon.classList.add("fa-solid", "fa-pencil")
+    editIcon.title = "Change read status"
     editButton.appendChild(editIcon)
     deleteButton.appendChild(deleteIcon)
     bookCard.append(bookImage, bookTitle, bookAuthor, pages, bookStatus, deleteButton, editButton)
