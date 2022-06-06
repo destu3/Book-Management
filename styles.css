@@ -61,10 +61,16 @@ html, body{
     background-color: transparent;
 }
 
-.book-card button > i{
+.delete-btn > i{
     color: firebrick;
     font-size: 16px;
     transition: all 0.1s;
+    margin-right: 10px;
+}
+
+.edit-btn > i{
+    color: black;
+    margin-left: 10px;
 }
 
 .book-card button i:hover{
@@ -109,17 +115,17 @@ html, body{
     display: block;
 }
 
-input[type="text"]{
+input[type="text"], select{
     display: block;
     font-size: 1rem;
     margin-top: 3px;
     border: none;
-    border-bottom: 1px solid grey;
+    border-bottom: 1px solid black;
     display: inline-block;
     width: 100%;
 }
 
-input[type="text"]:focus{
+input[type="text"]:focus, select:focus{
     outline: none;
 }
 
@@ -132,8 +138,7 @@ input[type="text"]:focus{
 
 .book-view{
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(5, 1fr);
     padding: 100px;
     padding-top: 30px;
 }
