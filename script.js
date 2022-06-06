@@ -66,7 +66,7 @@ function createBook(book){
     let bookCard = document.createElement("div")
     bookCard.classList.add("book-card")
     let bookImage = document.createElement("img")
-    bookImage.src = "./images/TLOTR.jpg"
+    bookImage.src = "./images/cover-image.png"
     bookImage.classList.add("book-image")
     let bookTitle = document.createElement("h4")
     bookTitle.textContent = book.title
