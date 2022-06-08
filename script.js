@@ -113,6 +113,7 @@ function addBooksToLibrary(){
     }
     else{
         errorMessage.textContent = "Book successfully added" 
+        setTimeout(() => {errorMessage.textContent = "" }, 2000)
         errorMessage.classList.add("positive-e")
         let book = new Book(bookName.value, bookAuthor.value, Number(numberOfPages.value), bookCompleted.value)
         theLibrary.push(book)
