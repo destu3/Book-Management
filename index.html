@@ -1,51 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="./styles.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./styles.css" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="main-area">
-        <div class="add-Book">
-            <h3>Add new book</h3>
-            <div class="fields">
-                <div class="book-entry">
-                    <label for="name">Name of the book</label>
-                    <input type="text" id="name" placeholder="The Lord of The Rings">
-                </div>
+      <div class="add-Book">
+        <h3>Add new book</h3>
+        <div class="fields">
+          <div class="book-entry">
+            <label for="name">Name of the book</label>
+            <input type="text" id="name" placeholder="The Lord of The Rings" />
+          </div>
 
-                <div class="book-entry">
-                    <label for="author">Author name</label>
-                    <input type="text" id="author" placeholder="J. R. R. Tolkien">
-                </div>
-                
-                <div class="book-entry">
-                    <label for="pages">Pages</label>
-                    <input type="text" id="pages" placeholder="e.g 897">
-                </div>
+          <div class="book-entry">
+            <label for="author">Author name</label>
+            <input type="text" id="author" placeholder="J. R. R. Tolkien" />
+          </div>
 
-                <div class="book-entry">
-                    <label for="completed">Finished this book?</label>
-                    <select id="completed" name="completed">
-                        <option value="Completed">Completed</option>
-                        <option value="Not Completed">Not Completed</option>
-                      </select>
-                </div>
-            </div>
-            
-            <button id="addBtn" style="margin-top: 35px;">New book Entry</button>
-            <p class="error"></p>
-         
+          <div class="book-entry">
+            <label for="pages">Pages</label>
+            <input type="text" id="pages" placeholder="e.g 897" />
+          </div>
+
+          <div class="book-entry">
+            <label for="completed">Finished this book?</label>
+            <select id="completed" name="completed">
+              <option value="Completed">Completed</option>
+              <option value="Not Completed">Not Completed</option>
+            </select>
+          </div>
         </div>
 
-        <div class="book-view">
-        
-        </div>
+        <button id="addBtn" style="margin-top: 35px">New book Entry</button>
+        <p class="error"></p>
+      </div>
+
+      <div class="book-view"></div>
     </div>
     <script src="./script.js"></script>
-</body>
+  </body>
 </html>
